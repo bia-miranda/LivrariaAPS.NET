@@ -1,0 +1,41 @@
+﻿@model Livraria3.Models.ModLivro
+
+@{
+    ViewBag.Title = "CadLivro";
+}
+
+<h2>Cadastrar Livro</h2>
+
+
+@using (Html.BeginForm("ConfCadLivro","Livraria", FormMethod.Post, new { enctype = "multipart/form-data"}))
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <hr />
+        <div class="form-group">
+            @Html.LabelFor(model => model.nomeLivro, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input type="text" id="txtNmLivro" name="txtNmLivro" />
+                <br />
+                @Html.ValidationMessageFor(model => model.nomeLivro, "", new { @class = "text-danger" })
+                <br />
+                @Html.DropDownList("autores", "Escolha o autor")
+            </div>
+           
+        </div>
+        <br/>
+       
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Salvar" class="btn btn-primary" />
+         
+                @Html.ActionLink("Voltar", "Index")
+            </div>
+        </div>
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

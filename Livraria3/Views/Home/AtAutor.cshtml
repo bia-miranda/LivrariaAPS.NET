@@ -1,0 +1,26 @@
+﻿@{
+    ViewBag.Title = "AtAutor";
+}
+
+<h2>Atualizar Autor</h2>
+
+@using (Html.BeginForm("AtAutor", "Home", FormMethod.Post, new { enctype = "multipart/form-data"}))
+{
+    <label>Código do autor</label>
+    <input type="text" id="txtCodAutor" name="txtCodAutor" value="@ViewBag.cod" />
+    <br />
+
+    <label>Nome do autor</label>
+    <input type="text" id="txtNmAutor" name="txtNmAutor" value="@ViewBag.nome" />
+    <br />
+
+    <label>Status</label>
+    <input type="text" id="txtSta" name="txtSta" value="@ViewBag.sta" />
+    <br />
+    <br />
+    <br />
+    <input type="submit" value="Buscar" name="btn" class="btn btn-warning" />
+    <input type="submit" value="Atualizar" name="btn" class="btn btn-success"/>
+    <input type="submit" value="Excluir" name="btn" class="btn btn-danger"/>
+}
+
